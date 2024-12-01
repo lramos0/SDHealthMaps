@@ -1,0 +1,115 @@
+/* General Reset */
+body, h1, header, main, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: "Courier New", Courier, monospace; /* Monospaced font for terminal feel */
+    background-color: #000000; /* Black background */
+    color: #00FF00; /* Bright green text */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Terminal Header */
+#terminal-header {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #1E1E1E; /* Darker gray header */
+    color: #00FF00; /* Bright green for terminal text */
+    font-size: 1rem;
+    border-bottom: 1px solid #00FF00; /* Subtle divider */
+}
+
+.header-line {
+    text-shadow: 0 0 10px #00FF00; /* Glowing text effect */
+}
+
+/* Terminal Content */
+#terminal-content {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.terminal-line {
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+.command-form {
+   width: 100%;
+   margin-bottom: 15px;
+   font-size: 1.1rem;
+}
+
+.command {
+    color: #00FF00; /* Highlight commands */
+}
+
+.cursor {
+    background-color: #00FF00;
+    color: #000000;
+    padding: 0 2px;
+    animation: blink 0.8s steps(2, start) infinite;
+}
+
+/* Map Container */
+.map-container {
+    position: center;
+    width: 80vw;
+    background-color: #1C1C1C; /* Neutral dark gray container background */
+    border: 1px solid #00FF00; /* Terminal green border */
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+#map {
+    background-color: lightblue;
+    border-radius: 25% 10%;
+    overflow: hidden;
+    position: relative; /* Ensure the child elements stay within bounds */
+}
+
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    width: 100%;
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Blinking Cursor Animation */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .terminal-line {
+        font-size: 0.9rem;
+    }
+
+    .map-container {
+        width: 100%;
+    }
+}

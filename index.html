@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="map-styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Map</title>
+</head>
+<body>
+<header id="terminal-header">
+  <div class="header-line">bash-terminal:~/healthcare-map$</div>
+</header>
+<main id="terminal-content">
+  <div class="terminal-line">[INFO] Welcome to the Healthcare Map Terminal</div>
+  <div class="terminal-line">Type a command below:</div>
+  <form id="command-form" autocomplete="off">
+    <span class="prompt">bash$</span>
+    <input type="text" id="command-input" placeholder="Enter a command..." />
+  </form>
+  <div id="map" class="map-container">
+    <div class="embed-container">
+      <iframe
+              width="500"
+              height="400"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+              title="Healthcare Map"
+              src="//sdsugeo.maps.arcgis.com/apps/Embed/index.html?webmap=0b31866fc6a340aba0d7608396915088&extent=-117.5567,32.591,-116.7355,33.067&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light">
+      </iframe>
+    </div>
+  </div>
+</main>
+</body>
+</html>
