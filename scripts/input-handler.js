@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     try {
-      const response = await fetch('http://ec2-3-140-246-87.us-east-2.compute.amazonaws.com:3000/gpt', {
+      const response = await fetch('https://ec2-3-140-246-87.us-east-2.compute.amazonaws.com:3000/gpt', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
