@@ -130,21 +130,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to send the command to OpenAI API and get a response
   async function sendToChatGPT(command) {
     const body = JSON.stringify({
-      model: 'gpt-4o-mini', // Or 'gpt-4' if you're using GPT-4
-      messages: [
-        { role: 'user', content: command }
-      ],
-      "temperature": 0.7
+      query: command
     });
 
     try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const response = await fetch('http://ec2-3-140-246-87.us-east-2.compute.amazonaws.com:3000/gpt ', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${openAI_API_KEY}`,
+          'Content-Type': 'application/json'
         },
-        body: body,
+        body: body
       });
 
       const data = await response.json();
@@ -159,8 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log('OpenAI response:', data);
 
       // Check if 'choices' exists and is an array with at least one item
-      if (data && data.choices && data.choices.length > 0) {
-        return data.choices[0].message.content;
+      if (data.response.length > 0) {
+        return data.response;
       } else {
         console.error('No valid "choices" in response:', data);
         return '[ERROR] No valid response from OpenAI API.';
