@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const commandInput = document.getElementById("command-input");
   const terminalContent = document.getElementById("terminal-content");
   const mapContainer = document.querySelector(".embed-container");
-  const openAI_API_KEY = 'hehe_you_like_my_huevos?'
+  const openAI_API_KEY = 'to_be_replaced'
   const headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${openAI_API_KEY}`,
