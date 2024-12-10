@@ -15,13 +15,17 @@ function typeTerminalLine(targetElement, text, typingSpeed = 50) {
 
 // Add event listener to run the typing effect after page load
 window.addEventListener('load', () => {
-  const terminalContent = document.getElementById('terminal-content');
-  const terminalLine = document.createElement('div');
-  terminalLine.className = 'terminal-line';
+  // Check if the current page is terminal.html
+  if (window.location.pathname.includes('terminal.html')) {
+    const terminalContent = document.getElementById('terminal-content');
+    const terminalLine = document.createElement('div');
+    terminalLine.className = 'terminal-line';
 
-  // Prepend the new terminal line to the terminal content
-  terminalContent.prepend(terminalLine);
+    // Prepend the new terminal line to the terminal content
+    terminalContent.append(terminalLine);
 
-  const textToType = "Here are some healthcare facilities, type a command to compare:";
-  typeTerminalLine(terminalLine, textToType, 50); // Start typing with a speed of 50ms per character
+    const textToType = "^^^ Here are some healthcare facilities, type a command to compare:";
+    typeTerminalLine(terminalLine, textToType, 5); // Start typing with a speed of 50ms per character
+  }
 });
+

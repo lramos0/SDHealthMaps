@@ -13,51 +13,58 @@
 <main id="terminal-content">
     <div id="output-section">
         <h1>Welcome to SDHealthMaps</h1>
-        <p>Explore our innovative tools and detailed reports below:</p>
+        <div><p>Our project aims to evaluate the accessibility of various tiers of healthcare services in San Diego County. Our examination looks at various geographical aspects including location, distances to facilities, regional geography, and transportation methods. This will be compared to research the potential disparities in healthcare access across various socioeconomic variables. The purpose of this study is to create data-driven insights that can influence policy and decisions to improve equitable healthcare access within the county, and hopefully with further analysis and refined data methodology, beyond that. </p></div>
+        <h2>Explore our innovative tools and detailed reports below:</h2>
         <div class="button-container">
-            <a href="./terminal.html" class="terminal-button">Try MapGPT</a>
+            <a href="./terminal.html" class="terminal-button">Try SDHealthMaps</a>
             <a href="./BDA594FinalProjectReport.html" class="terminal-button">Check out our report</a>
         </div>
 
         <!-- Collapsible Image Section -->
         <div class="collapsible-container">
             <div class="collapsible" id="image1">
-                <button class="collapsible-button">Density of economic status vs Health Place Index</button>
+                <button class="collapsible-button">
+                    <span class="arrow">&#9660;</span> <!-- Arrow on the left side -->
+                    <span class="collapsible-title">Density of economic status vs Health Place Index</span>
+                </button>
                 <div class="collapsible-content">
                     <img src="./images/Density_Economic_HPI_KDE.png" alt="Image 1" class="collapsible-image">
                 </div>
             </div>
             <div class="collapsible" id="image2">
-                <button class="collapsible-button">Number of facilities opened over time</button>
+                <button class="collapsible-button">
+                    <span class="arrow">&#9660;</span>
+                    <span class="collapsible-title">Number of facilities opened over time</span>
+                </button>
                 <div class="collapsible-content">
                     <img src="./images/Facilities_Number.png" alt="Image 2" class="collapsible-image">
                 </div>
             </div>
             <div class="collapsible" id="image3">
-                <button class="collapsible-button">Healthcare facility count by HPI Quartiles</button>
+                <button class="collapsible-button">
+                    <span class="arrow">&#9660;</span>
+                    <span class="collapsible-title">Healthcare facility count by HPI Quartiles</span>
+                </button>
                 <div class="collapsible-content">
                     <img src="./images/Facility_HPI.png" alt="Image 3" class="collapsible-image">
                 </div>
             </div>
             <div class="collapsible" id="image4">
-                <button class="collapsible-button">Life Expectancy vs. Health Place Index</button>
+                <button class="collapsible-button">
+                    <span class="arrow">&#9660;</span>
+                    <span class="collapsible-title">Life Expectancy vs. Health Place Index</span>
+                </button>
                 <div class="collapsible-content">
                     <img src="./images/LEB_HPI.png" alt="Image 4" class="collapsible-image">
                 </div>
             </div>
         </div>
-        <div id="user-counter" class="user-counter">Total Visits: 0</div>
+
+
     </div>
 </main>
-<div id="terminal-input">
-    <form id="command-form" autocomplete="off">
-        <span class="prompt"> >rash$: </span>
-        <input type="text" id="command-input" class="prompt" placeholder="Enter a command..." />
-    </form>
-</div>
 <script src="./scripts/input-handler.js"></script>
 <script src="./scripts/effects.js"></script>
-<script src="./scripts/user-counter.js"></script>
 <script src="./scripts/collapsible.js"></script>
 </body>
 </html>

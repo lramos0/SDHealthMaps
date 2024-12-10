@@ -1,17 +1,15 @@
 // Wait for the DOM to fully load before adding event listeners
-document.addEventListener("DOMContentLoaded", () => {
-    const collapsibleButtons = document.querySelectorAll(".collapsible-button");
+document.querySelectorAll('.collapsible-button').forEach(button => {
+    button.addEventListener('click', function() {
+        const collapsible = this.closest('.collapsible');
+        collapsible.classList.toggle('active'); // Toggle the active class
 
-    collapsibleButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const content = button.nextElementSibling; // Get the corresponding collapsible content
-
-            // Toggle visibility of the content
-            if (content.style.display === "block") {
-                content.style.display = "none"; // Collapse the content
-            } else {
-                content.style.display = "block"; // Expand the content
-            }
-        });
+        const content = collapsible.querySelector('.collapsible-content');
+        if (content.style.display === 'block') {
+            content.style.display = 'none'; // Hide content
+        } else {
+            content.style.display = 'block'; // Show content
+        }
     });
 });
+

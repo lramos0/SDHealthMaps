@@ -20,6 +20,8 @@ body {
 
 /* Terminal Header */
 #terminal-header {
+    position: fixed;
+    z-index: 11;
     width: 100%;
     padding: 10px 20px;
     background-color: #1E1E1E; /* Darker gray header */
@@ -30,6 +32,7 @@ body {
 
 .header-line {
     text-shadow: 0 0 10px #00FF00; /* Glowing text effect */
+    color: #00FF00;
 }
 
 /* Terminal Content */
@@ -41,9 +44,6 @@ body {
     align-items: flex-start;
 }
 
-#terminal-input{
-
-}
 
 .terminal-line {
     width: 100%;
@@ -78,6 +78,23 @@ input#command-input {
     position: relative;
 }
 
+/* Terminal container */
+.terminal_input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid #00FF00; /* Green border for the terminal */
+    background-color: #1E1E1E;
+    border-radius: 5px;
+    position: fixed; /* Fix the prompt at the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.bottom-element {
+    margin-top: 10vh
+}
 /* Prompt Styling */
 .prompt {
     color: #00FF00; /* Prompt text color */
@@ -88,7 +105,6 @@ input#command-input {
 
 /* Make the cursor always visible and blinking */
 input#command-input {
-    position: relative;
     padding-right: 20px; /* Ensuring space for the cursor */
     animation: blink-caret 1s steps(1) infinite; /* Blinking animation */
     font-weight: bold;
@@ -107,13 +123,13 @@ input#command-input {
 /* Map Container */
 .map-container {
     position: center;
-    width: 60vw;
+    width: 65vw;
+    max-height: 50vh;
     background-color: #1C1C1C; /* Neutral dark gray container background */
     border: 1px solid #00FF00; /* Terminal green border */
     border-radius: 5px;
     overflow: hidden;
     margin-top: 20px;
-    max-height: 70vh;
 }
 
 .map-container {

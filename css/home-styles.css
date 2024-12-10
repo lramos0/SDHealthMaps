@@ -13,28 +13,41 @@ body, h1, header, main, div {
 
 .collapsible {
     margin-bottom: 10px;
-    border: 1px solid #00FF00; /* Green border for each collapsible section */
-    border-radius: 5px;
 }
 
+/* Button Styles */
 .collapsible-button {
-    background-color: #1E1E1E; /* Dark background for buttons */
+    background-color: transparent; /* No background */
     color: #00FF00; /* Green text */
     padding: 10px;
     width: 100%;
     text-align: left;
     font-size: 1.1rem;
-    border: none;
+    border: none; /* Remove border */
     cursor: pointer;
     font-family: "Courier New", Courier, monospace;
-    border-radius: 5px;
+    display: flex;
+    align-items: center; /* Align items vertically */
 }
 
 .collapsible-button:hover {
-    background-color: #00FF00; /* Change background color on hover */
-    color: #000000; /* Black text on hover */
+    background-color: transparent; /* No hover background */
+    color: #007700; /* Black text on hover */
 }
 
+/* Title Styles */
+.collapsible-title {
+    flex-grow: 1; /* Allow title to take remaining space */
+}
+
+/* Arrow Styles */
+.arrow {
+    font-size: 1.5rem;
+    margin-right: 10px; /* Space between the arrow and title */
+    transition: transform 0.3s ease;
+}
+
+/* Collapsible Content */
 .collapsible-content {
     display: none; /* Hidden by default */
     padding: 10px;
@@ -45,6 +58,15 @@ body, h1, header, main, div {
     width: 100%;
     height: auto;
     border-radius: 5px;
+}
+
+/* When the section is expanded, rotate the arrow */
+.collapsible.active .arrow {
+    transform: rotate(180deg); /* Rotate the arrow */
+}
+
+.collapsible.active .collapsible-content {
+    display: block; /* Show the content when active */
 }
 
 /* Body Styling */
@@ -89,16 +111,22 @@ body {
 }
 
 h1 {
+    padding-top: 20px;
     font-size: 2rem;
     margin-bottom: 10px;
 }
 
 p {
-    font-size: 1.2rem;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    max-width: 60vw;
+    font-size: 0.8rem;
     margin-bottom: 20px;
 }
 
 .button-container {
+    padding-top: 5vh;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column; /* Vertically align buttons */
     gap: 20px;
