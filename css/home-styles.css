@@ -7,6 +7,8 @@ body, h1, header, main, div {
 
 /* Collapsible Section Styles */
 .collapsible-container {
+    align-items: center;
+    position: relative;
     width: 100%;
     margin-top: 20px;
 }
@@ -21,12 +23,12 @@ body, h1, header, main, div {
     color: #00FF00; /* Green text */
     padding: 10px;
     width: 100%;
-    text-align: left;
     font-size: 1.1rem;
     border: none; /* Remove border */
     cursor: pointer;
     font-family: "Courier New", Courier, monospace;
     display: flex;
+    text-align: left;
     align-items: center; /* Align items vertically */
 }
 
@@ -120,15 +122,13 @@ p {
     align-content: center;
     text-align: center;
     padding-top: 5vh;
-    padding-bottom: 5vh;
-    max-width: 60vw;
     font-size: 0.8rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .button-container {
-    padding-top: 5vh;
-    padding-bottom: 20px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     display: flex;
     flex-direction: column; /* Vertically align buttons */
     gap: 20px;
