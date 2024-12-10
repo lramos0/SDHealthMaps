@@ -117,6 +117,7 @@ h1 {
 }
 
 p {
+    align-content: center;
     text-align: center;
     padding-top: 5vh;
     padding-bottom: 5vh;
