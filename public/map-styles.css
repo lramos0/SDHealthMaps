@@ -107,7 +107,7 @@ input#command-input {
 /* Map Container */
 .map-container {
     position: center;
-    width: 85vw;
+    width: 60vw;
     background-color: #1C1C1C; /* Neutral dark gray container background */
     border: 1px solid #00FF00; /* Terminal green border */
     border-radius: 5px;

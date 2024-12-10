@@ -3,7 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const commandInput = document.getElementById("command-input");
   const terminalContent = document.getElementById("terminal-content");
   const mapContainer = document.querySelector(".embed-container");
-
+  const openAI_API_KEY = 'hehe_you_like_my_huevos?'
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${openAI_API_KEY}`,
+  };
   var report = false
 
   const mapConfig = {
@@ -112,8 +116,53 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    // Function to send the command to OpenAI API and get a response
+  async function sendToChatGPT(command) {
+    const body = JSON.stringify({
+      model: 'gpt-4o-mini', // Or 'gpt-4' if you're using GPT-4
+      messages: [
+        { role: 'user', content: command }
+      ],
+      "temperature": 0.7
+    });
 
-    // Function to handle form submission
+    try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${openAI_API_KEY}`,
+        },
+        body: body,
+      });
+
+      const data = await response.json();
+
+      // Check if the response is ok (status code in the 200-299 range)
+      if (!data) {
+        console.error('HTTP error:', response.status, response.statusText);
+        return '[ERROR] Failed to fetch from OpenAI API.';
+      }
+
+      // Log the full response to inspect its structure
+      console.log('OpenAI response:', data);
+
+      // Check if 'choices' exists and is an array with at least one item
+      if (data && data.choices && data.choices.length > 0) {
+        return data.choices[0].message.content;
+      } else {
+        console.error('No valid "choices" in response:', data);
+        return '[ERROR] No valid response from OpenAI API.';
+      }
+    } catch (error) {
+      // Catch any error that occurs during the fetch or response handling
+      console.error('Error fetching response from OpenAI:', error);
+      return '[ERROR] Failed to communicate with the AI service.';
+    }
+  }
+
+
+  // Function to handle form submission
     function handleCommand(event) {
       const element = document.getElementById("bod");
       event.preventDefault();
@@ -122,10 +171,24 @@ document.addEventListener("DOMContentLoaded", () => {
         report = !report;
         mode = report ? 'report' : 'default';
         typeMessage(`[INFO] producing results using ${mode} mode`);
+        commandInput.value = ""; // Clear input
       }
-      else if (command) {
+      else if (mapConfig[command]) {
         typeMessage(`[INFO] Executing command: ${command}`).then(() => {
           report ? appendToMap(command) : replaceMap(command);
+        });
+        commandInput.value = ""; // Clear input
+      }
+      else {
+        typeMessage(`[INFO] Thinking about: ${command}`).then(() => {
+          // Call sendToChatGPT, which returns a Promise.
+          sendToChatGPT(command).then(response => {
+            // Now that the promise is resolved, we have the content as a string.
+            typeMessage(`[gpt-4o-mini] ${response}`);  // Display the content from ChatGPT
+          }).catch(error => {
+            console.error('Error fetching response from OpenAI:', error);
+            typeMessage('[ERROR] Failed to get response from OpenAI.');
+          });
         });
         commandInput.value = ""; // Clear input
       }

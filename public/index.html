@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="home-styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body id="bod">
+<header id="terminal-header">
+    <div class="header-line"> > rash-terminal:~/home$</div>
+</header>
+<main id="terminal-content">
+    <div id="output-section">
+        <h1>Welcome to SDHealthMaps</h1>
+        <p>Explore our innovative tools and detailed reports below:</p>
+        <div class="button-container">
+            <a href="./terminal.html" class="terminal-button">Try MapGPT</a>
+            <a href="./report.html" class="terminal-button">Check out our report</a>
+        </div>
+
+        <!-- Collapsible Image Section -->
+        <div class="collapsible-container">
+            <div class="collapsible" id="image1">
+                <button class="collapsible-button">Density of economic status vs Health Place Index</button>
+                <div class="collapsible-content">
+                    <img src="./images/Density_Economic_HPI_KDE.png" alt="Image 1" class="collapsible-image">
+                </div>
+            </div>
+            <div class="collapsible" id="image2">
+                <button class="collapsible-button">Number of facilities opened over time</button>
+                <div class="collapsible-content">
+                    <img src="./images/Facilities_Number.png" alt="Image 2" class="collapsible-image">
+                </div>
+            </div>
+            <div class="collapsible" id="image3">
+                <button class="collapsible-button">Healthcare facility count by HPI Quartiles</button>
+                <div class="collapsible-content">
+                    <img src="./images/Facility_HPI.png" alt="Image 3" class="collapsible-image">
+                </div>
+            </div>
+            <div class="collapsible" id="image4">
+                <button class="collapsible-button">Life Expectancy vs. Health Place Index</button>
+                <div class="collapsible-content">
+                    <img src="./images/LEB_HPI.png" alt="Image 4" class="collapsible-image">
+                </div>
+            </div>
+        </div>
+        <div id="user-counter" class="user-counter">Total Visits: 0</div>
+    </div>
+</main>
+<div id="terminal-input">
+    <form id="command-form" autocomplete="off">
+        <span class="prompt"> >rash$: </span>
+        <input type="text" id="command-input" class="prompt" placeholder="Enter a command..." />
+    </form>
+</div>
+<script src="./scripts/input-handler.js"></script>
+<script src="./scripts/effects.js"></script>
+<script src="./scripts/user-counter.js"></script>
+<script src="./scripts/collapsible.js"></script>
+</body>
+</html>
+
+
